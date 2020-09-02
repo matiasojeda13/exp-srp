@@ -8,6 +8,7 @@ namespace SRP
         preocuparse de ello, y si deberia hacerlo una clase aparte llamada biblioteca
         ademas no se cumple con el patron expert dado que se le asignan los datos de almacenaje a una clase que no debiera ser
         experta en ello */
+        
         public string Titulo { get ; }
         public string Autor { get ; }
         public string Codigo { get ;  }
