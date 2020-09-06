@@ -21,6 +21,9 @@ namespace Library
                 {
                     this.nombre = value;
                 }
+                else{
+                    this.nombre = "incorrecto";
+                }
             }
         }
 
@@ -35,6 +38,9 @@ namespace Library
                 {
                     this.id = value;
                 }
+                else{
+                    this.id = "incorrecto";
+                }
             }
         }
         public string Telefono
@@ -48,6 +54,9 @@ namespace Library
                 if(isValidTelefono(value))
                 {
                     this.telefono = value;
+                }
+                else{
+                    this.telefono = "incorrecto";
                 }
             }
         }

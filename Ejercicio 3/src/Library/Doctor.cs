@@ -21,6 +21,9 @@ namespace Library
                 {
                     this.nombre = value;
                 }
+                else{
+                    this.nombre = "incorrecto";
+                }
             }
         }
         public string Especialidad
@@ -34,6 +37,9 @@ namespace Library
                 if(isValidEspecialidad(value))
                 {
                     this.especialidad = value;
+                }
+                else{
+                    this.especialidad = "incorrecta";
                 }
             }
         }

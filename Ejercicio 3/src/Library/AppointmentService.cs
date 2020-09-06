@@ -31,19 +31,8 @@ namespace Library
             }
             return true;
         }
-        private int contador = 0;
+        private static int contador = 0;
         public int Contador{get;set;} 
-        /*public int Contador 
-        {
-            get
-            {
-                return this.contador;
-            }
-            set
-            {
-                this.contador = value;
-            }
-        }*/
         public DateTime Fecha {get;set;}
         public Doctor Doctor {get;set;}
         public Paciente Paciente {get;set;}
@@ -53,7 +42,8 @@ namespace Library
             this.Lugar = lugar;
             this.Doctor = doctor;
             this.Paciente = paciente;
-            this.contador = contador++;
+            this.Contador = contador;
+            contador++;
         }
     }
 }
