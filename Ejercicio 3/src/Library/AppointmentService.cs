@@ -2,52 +2,58 @@
 using System.Text;
 
 namespace Library
-{
-    public class AppointmentService
+{   /* con respecto a srp y expert, no cumple con srp dado que en caso de que se quieran cambiar datos del paciente o del doctor,
+        se tendria que cambiar la clase de la consulta en si misma. Por ello convendria crear una clase para los datos del paciente
+        y otra clase para los datos del doctor para luego volcar los datos de esas dos clases en la clase consulta. */
+    public class Consulta
     {
-        public static string CreateAppointment(string name, string id, string phoneNumber, DateTime date, string appoinmentPlace, string doctorName)
+        private string lugar;
+        private DateTime fecha;
+        public string  Lugar
         {
-            StringBuilder stringBuilder = new StringBuilder("Scheduling appointment...\n");
-            Boolean isValid = true;
-
-            if (string.IsNullOrEmpty(name))
+            get
             {
-                stringBuilder.Append("Unable to schedule appointment, Name is required\n");
-                isValid = false;
+                return this.lugar;
             }
-
-            if (string.IsNullOrEmpty(id))
+            set
             {
-                stringBuilder.Append("Unable to schedule appointment, id is required\n");
-                isValid = false;
+                if (IsValidLugar(value))
+                {
+                    this.lugar = value;
+                }
             }
-
-            if (string.IsNullOrEmpty(phoneNumber))
-            {
-                stringBuilder.Append("Unable to schedule appointment, Phone number is required\n");
-                isValid = false;
-            }
-
-            if (string.IsNullOrEmpty(appoinmentPlace))
-            {
-                stringBuilder.Append("Unable to schedule appointment, Appoinment place is required\n");
-                isValid = false;
-            }
-
-            
-            if (string.IsNullOrEmpty(doctorName))
-            {
-                stringBuilder.Append("Unable to schedule appointment, Doctor name is required\n");
-                isValid = false;
-            }
-
-            if (isValid)
-            {
-                stringBuilder.Append("Appoinment Scheduled");
-            }
-
-            return stringBuilder.ToString();
         }
-
+        public static bool IsValidLugar(string cadena)
+        {
+            if (string.IsNullOrEmpty(cadena))
+            {
+                return false;
+            }
+            return true;
+        }
+        private int contador = 0;
+        public int Contador{get;set;} 
+        /*public int Contador 
+        {
+            get
+            {
+                return this.contador;
+            }
+            set
+            {
+                this.contador = value;
+            }
+        }*/
+        public DateTime Fecha {get;set;}
+        public Doctor Doctor {get;set;}
+        public Paciente Paciente {get;set;}
+        public Consulta(DateTime fecha, string lugar, Doctor doctor, Paciente paciente)
+        {
+            this.Fecha = fecha;
+            this.Lugar = lugar;
+            this.Doctor = doctor;
+            this.Paciente = paciente;
+            this.contador = contador++;
+        }
     }
 }
